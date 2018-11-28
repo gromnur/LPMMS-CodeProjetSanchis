@@ -65,7 +65,3 @@ for img in listImage :
 print(listImage[0].__repr__())
 
 a = [listImage[0]._get_GPSLatitudeDMS(),listImage[0]._get_GPSLongitudeDMS()]
-# Création de la carte html
-map_osm = folium.Map(location=a)
-folium.Marker(a).add_to(map_osm)
-map_osm.save('map.html')
