@@ -10,4 +10,3 @@ if (len(sys.argv) != 2):
 image = "Image/"+ImageCoord(sys.arv[1])
 
 image.__repr__()
-
