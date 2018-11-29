@@ -7,3 +7,4 @@ Les librairies à installer sont :
  - exifread
  - pillow
  - folium
+ - pyinstaller
