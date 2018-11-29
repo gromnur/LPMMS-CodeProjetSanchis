@@ -3,7 +3,7 @@ import os
 import sys
 
 # Classe image contient les coordonnés GPS ainsi que la miniature de l'image si renseigné
-class Image(object):
+class ImageCoord(object):
 
     # Renvoi : [%d,%d,%f] à partir d'un String : [%s, %s, %s]
     def conversionTabNombre(GPSTab = "") :
@@ -37,13 +37,13 @@ class Image(object):
         self.GPSLatitudeRef = GPSLatitudeRef
 
     def _set_GPSLatitudeDD(self, GPSLatitude):
-        self.GPSLatitude = Image.conversionTabNombre(GPSLatitude)
+        self.GPSLatitude = ImageCoord.conversionTabNombre(GPSLatitude)
 
     def _set_GPSLongitudeRef(self, GPSLongitudeRef):
         self.GPSLongitudeRef = GPSLongitudeRef
 
     def _set_GPSLongitudeDD(self, GPSLongitude):
-        self.GPSLongitude = Image.conversionTabNombre(GPSLongitude)
+        self.GPSLongitude = ImageCoord.conversionTabNombre(GPSLongitude)
 
     def _set_JPEGThumbnail(self, JPEGThumbnail):
         self.JPEGThumbnail = JPEGThumbnail
