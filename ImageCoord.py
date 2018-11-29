@@ -52,6 +52,7 @@ class ImageCoord(object):
                 self.ImageDateTime = contenu['Image DateTime']
 
             # Ajout de la miniature TODO
+            ImageCoord._set_text_JPEGThumbnail(self)
 
             # Met a jour l'image si les coordonné existe
             if (contenu.__contains__('GPS GPSLatitudeRef')) :
@@ -84,16 +85,14 @@ class ImageCoord(object):
         self.GPSLongitude = ImageCoord.conversionTabNombre(GPSLongitude)
 
     def _set_JPEGThumbnail(self, lienImage) :
-
         # Créé une miiature de l'image
         im = Image.open(lienImage)
         im.thumbnail(ImageCoord.size)
-
+        im.save("miniaturetest.jpg", "JPEG")
         #Eregistrement de l'image
-        self.JPEGThumbnail = open
+        self.JPEGThumbnail = im
 
-    def _set_text_JPEGThumbnail(text = "", position = (2,2), fontSize = 40, font="calibri.ttf") :
-
+    def _set_text_JPEGThumbnail(self, text = "", position = (2,2), fontSize = 40, font="calibri.ttf") :
         #Poilice du texte
         font = ImageFont.truetype(font, fontSize)
 
