@@ -52,7 +52,7 @@ class ImageCoord(object):
                 self.ImageDateTime = contenu['Image DateTime']
 
             # Ajout de la miniature TODO
-            ImageCoord._set_text_JPEGThumbnail(self)
+            ImageCoord._set_JPEGThumbnail(self, self.CheminImage)
 
             # Met a jour l'image si les coordonné existe
             if (contenu.__contains__('GPS GPSLatitudeRef')) :
