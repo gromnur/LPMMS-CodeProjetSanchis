@@ -85,12 +85,14 @@ class ImageCoord(object):
 
     # Latitude sous la forme DMS
     def _get_GPSLatitudeDMS(self):
-        coord = self.GPSLatitude[0] + self.GPSLatitude[1]/60 + self.GPSLatitude[2]/3600
-        if self.GPSLatitudeRef == "N" :
-            return coord
-        if self.GPSLatitudeRef == "S" :
-            return -1 * coord
-        return None
+        if ImageCoord.has_coord(self) :
+            coord = self.GPSLatitude[0] + self.GPSLatitude[1]/60 + self.GPSLatitude[2]/3600
+            if self.GPSLatitudeRef == "N" :
+                return coord
+            if self.GPSLatitudeRef == "S" :
+                return -1 * coord
+        else :
+            return None
 
     # Verifie si l'image à des coordonné
     def has_coord(self) :

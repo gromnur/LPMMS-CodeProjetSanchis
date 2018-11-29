@@ -1,6 +1,7 @@
 import exifread
 import os
 import sys
+import folium
 from ImageCoord import ImageCoord
 
 listImage = []
@@ -63,5 +64,9 @@ for img in listImage :
 
 print(listImage[0].__repr__())
 
-a = [listImage[0]._get_GPSLatitudeDMS(),listImage[0]._get_GPSLongitudeDMS()]
-print(a)
+a = [listImage[1]._get_GPSLatitudeDMS(),listImage[1]._get_GPSLongitudeDMS()]
+
+# Carte html
+m = folium.Map(location=[50.7517,5.9106], zoom_start=13)
+m.save('index.html')
+m._to_png()
