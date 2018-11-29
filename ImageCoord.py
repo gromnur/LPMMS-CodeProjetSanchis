@@ -51,13 +51,13 @@ class ImageCoord(object):
 
             # Met a jour l'image si les coordonné existe
             if (contenu.__contains__('GPS GPSLatitudeRef')) :
-                self.GPSLatitudeRef = contenu['GPS GPSLatitudeRef'])
+                self.GPSLatitudeRef = contenu['GPS GPSLatitudeRef']
             if (contenu.__contains__('GPS GPSLatitude')) :
-                self.GPSLatitude = ImageCoord.conversionTabNombre(contenu['GPS GPSLatitude']))
+                self.GPSLatitude = ImageCoord.conversionTabNombre(contenu['GPS GPSLatitude'])
             if (contenu.__contains__('GPS GPSLongitudeRef')) :
-                self.GPSLongitudeRef = contenu['GPS GPSLongitudeRef'])
+                self.GPSLongitudeRef = contenu['GPS GPSLongitudeRef']
             if (contenu.__contains__('GPS GPSLongitude')) :
-                self.GPSLongitude = ImageCoord.conversionTabNombre(contenu['GPS GPSLongitude']))
+                self.GPSLongitude = ImageCoord.conversionTabNombre(contenu['GPS GPSLongitude'])
 
 
     ## Setter ##
