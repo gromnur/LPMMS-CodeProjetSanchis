@@ -7,7 +7,7 @@ if (len(sys.argv) != 2):
 	print("syntaxe : python geoLocPhoto.py image")
 	exit(1)
 
-image = "Image/"+ImageCoord(sys.arv[1])
+image = "Image\\"+ImageCoord(sys.argv[1])
 
 image.__repr__()
 
