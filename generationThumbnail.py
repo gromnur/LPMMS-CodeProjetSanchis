@@ -14,5 +14,5 @@ font = ImageFont.truetype("calibri.ttf", 50)
 draw = ImageDraw.Draw(im)
 draw.text((2,2), "1",font=font)
 
-# Sauve
-im.save("Image/IMG1thumbnail.png", "PNG")s
+# Save
+im.save("Image/IMG1thumbnail.png", "PNG")

@@ -6,4 +6,4 @@ Dépandance :
 Les librairies à installer sont :
  - exifread
  - pillow
- - TODO
+ - folium
