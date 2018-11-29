@@ -4,7 +4,7 @@ import folium
 import webbrowser
 
 # Chemin du dossier ou l'on recupere les images
-cheminDossier = 'Image'
+cheminDossier = 'D:\\LPMMS\\ProjetSanchisIMG\\LPMMS-CodeProjetSanchis\\Image'
 dirImage = os.listdir(cheminDossier)
 
 #création du fichier tampon
