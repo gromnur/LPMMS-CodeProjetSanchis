@@ -153,10 +153,10 @@ class ImageCoord(object):
 
     # Comparateur permet a la méthode sort de fonctionné correctement
     def __str__(self) :
-        return self.Nom + " " + self.ImageDateTime
+        return "\n" + self.Nom + ", date:" + self.ImageDateTime + ", lat:" + str(self.GPSLatitude) + ", long:" + str(self.GPSLongitude)
 
     def __repr__(self) :
-        return "\n" + self.Nom + " " + self.ImageDateTime + " lat:" + str(self.GPSLatitude) + " long:" + str(self.GPSLongitude)
+        return ImageCoord.__str__()
 
     def __eq__(self,other) :
         return (self.ImageDateTime == other.ImageDateTime)
