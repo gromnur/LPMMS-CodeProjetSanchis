@@ -8,7 +8,7 @@ import glob
 class ImageCoord(object):
 
     size = 128, 128
-    
+
     # Renvoi : [%d,%d,%f] à partir d'un String : [%s, %s, %s]
     def conversionTabNombre(GPSTab = "") :
         var = GPSTab.replace("[","").replace("]","").split(", ")
