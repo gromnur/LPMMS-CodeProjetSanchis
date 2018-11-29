@@ -7,6 +7,8 @@ import glob
 # Classe image contient les coordonnés GPS ainsi que la miniature de l'image si renseigné
 class ImageCoord(object):
 
+    size = 128, 128
+    
     # Renvoi : [%d,%d,%f] à partir d'un String : [%s, %s, %s]
     def conversionTabNombre(GPSTab = "") :
         var = GPSTab.replace("[","").replace("]","").split(", ")
@@ -81,13 +83,11 @@ class ImageCoord(object):
     def _set_GPSLongitudeDD(self, GPSLongitude):
         self.GPSLongitude = ImageCoord.conversionTabNombre(GPSLongitude)
 
-    def _set_JPEGThumbnail(self) :
-        size = 128, 128
+    def _set_JPEGThumbnail(self, lienImage) :
 
         # Créé une miiature de l'image
         im = Image.open(lienImage)
-        im.thumbnail(size)
-
+        im.thumbnail(ImageCoord.size)
 
         #Eregistrement de l'image
         self.JPEGThumbnail = open
