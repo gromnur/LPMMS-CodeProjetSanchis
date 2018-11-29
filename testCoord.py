@@ -1,7 +1,7 @@
 from ImageCoord import ImageCoord
 import os
 # Chemin du dossier ou l'on recupere les images
-cheminDossier = 'Image'
+cheminDossier = 'LPMMS-CodeProjetSanchis\Image'
 dirImage = os.listdir(cheminDossier)
 
 listImage = []
