@@ -1,9 +1,14 @@
+from PIL import Image, ImageDraw, ImageFont
 import exifread
 import os
 import sys
+<<<<<<< HEAD:Image.py
+=======
+import glob
+>>>>>>> 769a61571e7c66bb9a5e6fff61a46ddd60343750:ImageCoord.py
 
 # Classe image contient les coordonnés GPS ainsi que la miniature de l'image si renseigné
-class Image(object):
+class ImageCoord(object):
 
     # Renvoi : [%d,%d,%f] à partir d'un String : [%s, %s, %s]
     def conversionTabNombre(GPSTab = "") :
@@ -37,13 +42,13 @@ class Image(object):
         self.GPSLatitudeRef = GPSLatitudeRef
 
     def _set_GPSLatitudeDD(self, GPSLatitude):
-        self.GPSLatitude = Image.conversionTabNombre(GPSLatitude)
+        self.GPSLatitude = ImageCoord.conversionTabNombre(GPSLatitude)
 
     def _set_GPSLongitudeRef(self, GPSLongitudeRef):
         self.GPSLongitudeRef = GPSLongitudeRef
 
     def _set_GPSLongitudeDD(self, GPSLongitude):
-        self.GPSLongitude = Image.conversionTabNombre(GPSLongitude)
+        self.GPSLongitude = ImageCoord.conversionTabNombre(GPSLongitude)
 
     def _set_JPEGThumbnail(self, JPEGThumbnail):
         self.JPEGThumbnail = JPEGThumbnail
@@ -83,12 +88,14 @@ class Image(object):
 
     # Latitude sous la forme DMS
     def _get_GPSLatitudeDMS(self):
-        coord = self.GPSLatitude[0] + self.GPSLatitude[1]/60 + self.GPSLatitude[2]/3600
-        if self.GPSLatitudeRef == "N" :
-            return coord
-        if self.GPSLatitudeRef == "S" :
-            return -1 * coord
-        return None
+        if ImageCoord.has_coord(self) :
+            coord = self.GPSLatitude[0] + self.GPSLatitude[1]/60 + self.GPSLatitude[2]/3600
+            if self.GPSLatitudeRef == "N" :
+                return coord
+            if self.GPSLatitudeRef == "S" :
+                return -1 * coord
+        else :
+            return None
 
     # Verifie si l'image à des coordonné
     def has_coord(self) :
@@ -96,6 +103,23 @@ class Image(object):
                 (str(self.GPSLatitude) != "") &
                 (self.GPSLongitudeRef != "") &
                 (str(self.GPSLongitude) != ""))
+
+    def _set_JPEGThumbnail(self, lienImage, text = "", position = (2,2), fontSize = 40, font="calibri.ttf") :
+        size = 128, 128
+
+        # Créé une miiature de l'image
+        im = Image.open(lienImage)
+        im.thumbnail(size)
+
+        #Poilice du texte
+        font = ImageFont.truetype(font, fontSize)
+
+        # Ecriture sur l'image
+        draw = ImageDraw.Draw(im)
+        draw.text(position, text, font=font)
+
+        # Sauve
+        im.save(lienImage + ".png", "PNG")
 
     # Comparateur permet a la méthode sort de fonctionné correctement
     def __str__(self) :

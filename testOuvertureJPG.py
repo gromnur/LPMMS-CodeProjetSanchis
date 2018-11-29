@@ -1,12 +1,13 @@
 import exifread
 import os
 import sys
-from Image import Image
+import folium
+from ImageCoord import ImageCoord
 
 listImage = []
 
 # Chemin du dossier ou l'on recupere les images
-cheminDossier = 'D:\TDIMGFoluim\Image'
+cheminDossier = 'Image'
 dirImage = os.listdir(cheminDossier)
 
 # Ouverture d'un fichier log
@@ -36,7 +37,7 @@ for index in range(0,len(dirImage)) :
                 print ("Key: %s, value %s" % (tag, tags[tag]), file=fsorti)
                 contenu[tag] = tags[tag].__str__()
         #Créé une image avec son nom
-        anImage = Image(Nom = dirImage[index])
+        anImage = ImageCoord(Nom = dirImage[index])
 
         # Ajoute la miniature
         if (contenu.__contains__('Image DateTime')) :
@@ -63,4 +64,8 @@ for img in listImage :
 
 print(listImage[0].__repr__())
 
-a = [listImage[0]._get_GPSLatitudeDMS(),listImage[0]._get_GPSLongitudeDMS()]
+a = [listImage[1]._get_GPSLatitudeDMS(),listImage[1]._get_GPSLongitudeDMS()]
+
+# Carte html
+m = folium.Map(location=[50.7517,5.9106], zoom_start=13)
+m.save('index.html')

@@ -21,6 +21,13 @@ Key: Image DateTime, value 2018:08:12 21:00:59
 
 Image 3:
 
+<<<<<<< HEAD
+=======
+
+
+Image 4:
+
+>>>>>>> 769a61571e7c66bb9a5e6fff61a46ddd60343750
 Key: Image DateTime, value 2018:08:09 11:26:00
 Key: GPS GPSLatitudeRef, value N
 Key: GPS GPSLatitude, value [44, 38, 41503/1000]
@@ -28,7 +35,11 @@ Key: GPS GPSLongitudeRef, value E
 Key: GPS GPSLongitude, value [2, 34, 20519/10000]
 
 
+<<<<<<< HEAD
 Image 4:
+=======
+Image 5:
+>>>>>>> 769a61571e7c66bb9a5e6fff61a46ddd60343750
 
 Key: Image DateTime, value 2018:07:24 11:52:31
 Key: GPS GPSLatitudeRef, value N
@@ -37,12 +48,20 @@ Key: GPS GPSLongitudeRef, value E
 Key: GPS GPSLongitude, value [2, 42, 385067/10000]
 
 
+<<<<<<< HEAD
 Image 5:
+=======
+Image 6:
+>>>>>>> 769a61571e7c66bb9a5e6fff61a46ddd60343750
 
 Key: Image DateTime, value 2018:08:12 16:05:56
 
 
+<<<<<<< HEAD
 Image 6:
+=======
+Image 7:
+>>>>>>> 769a61571e7c66bb9a5e6fff61a46ddd60343750
 
 Key: Image DateTime, value 2018:08:09 11:26:50
 Key: GPS GPSLatitudeRef, value N
@@ -51,7 +70,11 @@ Key: GPS GPSLongitudeRef, value E
 Key: GPS GPSLongitude, value [2, 34, 977/1250]
 
 
+<<<<<<< HEAD
 Image 7:
+=======
+Image 8:
+>>>>>>> 769a61571e7c66bb9a5e6fff61a46ddd60343750
 
 Key: Image DateTime, value 2018:07:24 11:52:16
 Key: GPS GPSLatitudeRef, value N
@@ -60,7 +83,11 @@ Key: GPS GPSLongitudeRef, value E
 Key: GPS GPSLongitude, value [2, 42, 192209/5000]
 
 
+<<<<<<< HEAD
 Image 8:
+=======
+Image 9:
+>>>>>>> 769a61571e7c66bb9a5e6fff61a46ddd60343750
 
 Key: Image DateTime, value 2018:08:09 11:26:47
 Key: GPS GPSLatitudeRef, value N
@@ -69,7 +96,11 @@ Key: GPS GPSLongitudeRef, value E
 Key: GPS GPSLongitude, value [2, 34, 977/1250]
 
 
+<<<<<<< HEAD
 Image 9:
+=======
+Image 10:
+>>>>>>> 769a61571e7c66bb9a5e6fff61a46ddd60343750
 
 Key: Image DateTime, value 2018:07:24 11:52:28
 Key: GPS GPSLatitudeRef, value N
@@ -78,6 +109,10 @@ Key: GPS GPSLongitudeRef, value E
 Key: GPS GPSLongitude, value [2, 42, 192209/5000]
 
 
+<<<<<<< HEAD
 Image 10:
+=======
+Image 11:
+>>>>>>> 769a61571e7c66bb9a5e6fff61a46ddd60343750
 
 Key: Image DateTime, value 2018:08:12 21:00:51
