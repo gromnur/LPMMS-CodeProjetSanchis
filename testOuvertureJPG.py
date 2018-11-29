@@ -1,7 +1,7 @@
 import exifread
 import os
 import sys
-from Image import Image
+from ImageCoord import ImageCoord
 
 listImage = []
 
@@ -36,7 +36,7 @@ for index in range(0,len(dirImage)) :
                 print ("Key: %s, value %s" % (tag, tags[tag]), file=fsorti)
                 contenu[tag] = tags[tag].__str__()
         #Créé une image avec son nom
-        anImage = Image(Nom = dirImage[index])
+        anImage = ImageCoord(Nom = dirImage[index])
 
         # Ajoute la miniature
         if (contenu.__contains__('Image DateTime')) :
