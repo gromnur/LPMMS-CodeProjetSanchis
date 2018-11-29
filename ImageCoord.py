@@ -2,13 +2,12 @@ from PIL import Image, ImageDraw, ImageFont
 import exifread
 import os
 import sys
-<<<<<<< HEAD:Image.py
-=======
 import glob
->>>>>>> 769a61571e7c66bb9a5e6fff61a46ddd60343750:ImageCoord.py
 
 # Classe image contient les coordonnés GPS ainsi que la miniature de l'image si renseigné
 class ImageCoord(object):
+
+    size = 128, 128
 
     # Renvoi : [%d,%d,%f] à partir d'un String : [%s, %s, %s]
     def conversionTabNombre(GPSTab = "") :
@@ -17,21 +16,56 @@ class ImageCoord(object):
         tab = [int(var[0]),int(var[1]),seconde[0]/seconde[1]]
         return tab
 
-    def __init__(self, ImageDateTime = "", GPSLatitudeRef = "",
-        GPSLatitude = "", GPSLongitudeRef = "",
-        GPSLongitude = "", JPEGThumbnail = "",  Nom = "") :
+    def __init__(self, cheminImage) :
 
         # Initialisation variable
-        self.Nom = Nom
-        self.ImageDateTime = ImageDateTime
-        self.JPEGThumbnail = JPEGThumbnail
+        self.CheminImage = cheminImage
+        self.Nom = cheminImage.split("\\")[-1]
+        self.ImageDateTime = ""
+        self.JPEGThumbnail = None
         self.GPSLatitudeRef = ""
         self.GPSLatitude = ""
+        self.GPSLatitudeDMS = 0.0
         self.GPSLongitudeRef = ""
         self.GPSLongitude = ""
+        self.GPSLongitudeDMS = 0.0
+
+        with open(cheminImage,'rb') as image :
+
+            contenu = {}
+
+            #Ouverture du EXIF de l'image JPG
+            tags = exifread.process_file(image)
+
+            #Parcour des tag EXIF de l'image JPG ouverte précédament
+            for tag in tags.keys():
+                # On garde les tag souhaité
+                if tag in ('GPS GPSLatitudeRef',
+                           'GPS GPSLatitude',
+                           'GPS GPSLongitudeRef',
+                           'GPS GPSLongitude',
+                           'Image DateTime') :
+                    contenu[tag] = tags[tag].__str__()
+
+            # Ajout de la date
+            if (contenu.__contains__('Image DateTime')) :
+                self.ImageDateTime = contenu['Image DateTime']
+
+            # Ajout de la miniature TODO
+            ImageCoord._set_JPEGThumbnail(self, self.CheminImage)
+
+            # Met a jour l'image si les coordonné existe
+            if (contenu.__contains__('GPS GPSLatitudeRef')) :
+                self.GPSLatitudeRef = contenu['GPS GPSLatitudeRef']
+            if (contenu.__contains__('GPS GPSLatitude')) :
+                self.GPSLatitude = ImageCoord.conversionTabNombre(contenu['GPS GPSLatitude'])
+            if (contenu.__contains__('GPS GPSLongitudeRef')) :
+                self.GPSLongitudeRef = contenu['GPS GPSLongitudeRef']
+            if (contenu.__contains__('GPS GPSLongitude')) :
+                self.GPSLongitude = ImageCoord.conversionTabNombre(contenu['GPS GPSLongitude'])
+
 
     ## Setter ##
-
     def _set_Nom(self,Nom):
         self.Nom = Nom
 
@@ -50,8 +84,21 @@ class ImageCoord(object):
     def _set_GPSLongitudeDD(self, GPSLongitude):
         self.GPSLongitude = ImageCoord.conversionTabNombre(GPSLongitude)
 
-    def _set_JPEGThumbnail(self, JPEGThumbnail):
-        self.JPEGThumbnail = JPEGThumbnail
+    def _set_JPEGThumbnail(self, lienImage) :
+        # Créé une miiature de l'image
+        im = Image.open(lienImage)
+        im.thumbnail(ImageCoord.size)
+        im.save("miniaturetest.jpg", "JPEG")
+        #Eregistrement de l'image
+        self.JPEGThumbnail = im
+
+    def _set_text_JPEGThumbnail(self, text = "", position = (2,2), fontSize = 40, font="calibri.ttf") :
+        #Poilice du texte
+        font = ImageFont.truetype(font, fontSize)
+
+        # Ecriture sur l'image
+        draw = ImageDraw.Draw(self.JPEGThumbnail)
+        draw.text(position, text, font=font)
 
 
     ## Getter ##
@@ -103,23 +150,6 @@ class ImageCoord(object):
                 (str(self.GPSLatitude) != "") &
                 (self.GPSLongitudeRef != "") &
                 (str(self.GPSLongitude) != ""))
-
-    def _set_JPEGThumbnail(self, lienImage, text = "", position = (2,2), fontSize = 40, font="calibri.ttf") :
-        size = 128, 128
-
-        # Créé une miiature de l'image
-        im = Image.open(lienImage)
-        im.thumbnail(size)
-
-        #Poilice du texte
-        font = ImageFont.truetype(font, fontSize)
-
-        # Ecriture sur l'image
-        draw = ImageDraw.Draw(im)
-        draw.text(position, text, font=font)
-
-        # Sauve
-        im.save(lienImage + ".png", "PNG")
 
     # Comparateur permet a la méthode sort de fonctionné correctement
     def __str__(self) :

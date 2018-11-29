@@ -39,7 +39,7 @@ for index in range(0,len(dirImage)) :
         #Créé une image avec son nom
         anImage = ImageCoord(Nom = dirImage[index])
 
-        # Ajoute la miniature
+        # Ajoute de la date
         if (contenu.__contains__('Image DateTime')) :
             anImage._set_ImageDateTime(contenu['Image DateTime'])
 
