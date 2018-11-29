@@ -20,7 +20,6 @@ for index in range(0,len(dirImage)) :
     if img.has_coord() :
         listImage.append(img)
 
-
 # Tri des images
 listImage.sort()
 
@@ -35,16 +34,18 @@ for index in range(0,len(listImage)) :
 
 print("Génération de la carte!")
 
-a = (listImage[0]._get_GPSLatitudeDMS(), listImage[0]._get_GPSLongitudeDMS())
+centre = (listImage[0]._get_GPSLatitudeDMS(), listImage[0]._get_GPSLongitudeDMS())
 
 # Création de la carte
-m = folium.Map(location=a,zoom_start=12)
+m = folium.Map(location=centre,zoom_start=11)
 
-#Création des icone
-icon = folium.features.CustomIcon('tempMiniature\\0.jpg')
-
-# Ajout d'un marqeur TODO
-folium.Marker(location=a, popup='0.jpg', icon=icon).add_to(m)
+#Ajout marqueur carte
+for index in range(0,len(listImage)) :
+    #Création des icone TODO
+    icon = folium.features.CustomIcon("tempMiniature\\"+str(index)+".jpg", icon_size=(70,70))
+    coord = (listImage[index]._get_GPSLatitudeDMS(), listImage[index]._get_GPSLongitudeDMS())
+    # Ajout d'un marqeur TODO
+    folium.Marker(location=coord, popup=listImage[index]._get_Nom(), icon=icon).add_to(m)
 
 # Sauvergarde de la carte
 m.save("index.html")
