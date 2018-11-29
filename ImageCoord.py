@@ -156,7 +156,7 @@ class ImageCoord(object):
         return "\n" + self.Nom + ", date:" + self.ImageDateTime + ", lat:" + str(self.GPSLatitude) + ", long:" + str(self.GPSLongitude)
 
     def __repr__(self) :
-        return ImageCoord.__str__()
+        return ImageCoord.__str__(self)
 
     def __eq__(self,other) :
         return (self.ImageDateTime == other.ImageDateTime)
