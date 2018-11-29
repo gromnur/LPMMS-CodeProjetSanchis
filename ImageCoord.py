@@ -86,7 +86,7 @@ class ImageCoord(object):
         # Créé une miiature de l'image
         im = Image.open(lienImage)
         im.thumbnail(ImageCoord.size)
-        im.save("miniaturetest.jpg", "JPEG")
+
         #Eregistrement de l'image
         self.JPEGThumbnail = im
 
@@ -97,10 +97,6 @@ class ImageCoord(object):
         # Ecriture sur l'image
         draw = ImageDraw.Draw(self.JPEGThumbnail)
         draw.text(position, text, font=font)
-
-        self.JPEGThumbnail.save("miniaturetest.jpg", "JPEG")
-
-        # Mise a jour de l'image
 
 
     ## Getter ##
