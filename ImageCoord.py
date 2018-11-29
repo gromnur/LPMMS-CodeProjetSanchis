@@ -91,7 +91,7 @@ class ImageCoord(object):
         self.JPEGThumbnail = im
 
     def _set_text_JPEGThumbnail(self, text = "", position = (2,2), fontSize = 40, font="calibri.ttf") :
-        #Poilice du texte
+        #Police du texte
         font = ImageFont.truetype(font, fontSize)
 
         # Ecriture sur l'image
