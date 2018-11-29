@@ -10,9 +10,9 @@ listImage = []
 for index in range(0,len(dirImage)) :
     img = ImageCoord(cheminDossier + '\\' + dirImage[index])
     listImage.append(img)
-    img._set_text_JPEGThumbnail("1")
-    # sauvegarde les miniature
-    # img._get_JPEGThumbnail().save("m"+str(index)+".jpg", "JPEG")
+    img._set_text_JPEGThumbnail(str(index+1))
+    #sauvegarde les miniature
+    #img._get_JPEGThumbnail().save("m"+str(index)+".jpg", "JPEG")
 
 # Affich image avec coordonné
 for a in listImage :
