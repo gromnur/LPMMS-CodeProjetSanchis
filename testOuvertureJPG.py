@@ -6,7 +6,7 @@ from Image import Image
 listImage = []
 
 # Chemin du dossier ou l'on recupere les images
-cheminDossier = 'D:\TDIMGFoluim\Image'
+cheminDossier = 'Image'
 dirImage = os.listdir(cheminDossier)
 
 # Ouverture d'un fichier log
