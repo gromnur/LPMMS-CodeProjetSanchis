@@ -1,5 +1,5 @@
 from ImageCoord import ImageCoord
-
+import os
 # Chemin du dossier ou l'on recupere les images
 cheminDossier = 'Image'
 dirImage = os.listdir(cheminDossier)
