@@ -48,10 +48,10 @@ for index in range(0,len(listImage)) :
     folium.Marker(location=coord, popup=listImage[index]._get_Nom(), icon=icon).add_to(m)
 
 # Sauvergarde de la carte
-m.save("index.html")
+m.save("carte.html")
 
 #Ouverture de la carte
-webbrowser.open("index.html")
+webbrowser.open("carte.html")
 
 # suppression du fichier tampon
 for root, dirs, files in os.walk("tempMiniature"):
