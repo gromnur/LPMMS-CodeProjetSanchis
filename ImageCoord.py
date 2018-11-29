@@ -30,7 +30,7 @@ class ImageCoord(object):
 
         with open(cheminImage,'rb') as image :
 
-            contenu = []
+            contenu = {}
 
             #Ouverture du EXIF de l'image JPG
             tags = exifread.process_file(image)
