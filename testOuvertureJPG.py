@@ -64,3 +64,4 @@ for img in listImage :
 print(listImage[0].__repr__())
 
 a = [listImage[0]._get_GPSLatitudeDMS(),listImage[0]._get_GPSLongitudeDMS()]
+print(a)

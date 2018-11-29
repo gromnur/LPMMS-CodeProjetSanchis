@@ -1,7 +1,6 @@
 import exifread
 import os
 import sys
-import folium
 
 # Classe image contient les coordonnés GPS ainsi que la miniature de l'image si renseigné
 class Image(object):
