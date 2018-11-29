@@ -95,13 +95,12 @@ class ImageCoord(object):
         font = ImageFont.truetype(font, fontSize)
 
         # Ecriture sur l'image
-        im = ImageDraw.Draw(self.JPEGThumbnail)
-        im.text(position, text, font=font)
+        draw = ImageDraw.Draw(self.JPEGThumbnail)
+        draw.text(position, text, font=font)
 
         self.JPEGThumbnail.save("miniaturetest.jpg", "JPEG")
 
         # Mise a jour de l'image
-        self.JPEGThumbnail = im
 
 
     ## Getter ##

@@ -10,6 +10,7 @@ listImage = []
 for index in range(0,len(dirImage)) :
     img = ImageCoord(cheminDossier + '\\' + dirImage[index])
     listImage.append(img)
+    img._set_text_JPEGThumbnail("1")
 
 for a in listImage :
     print(a.__repr__())
