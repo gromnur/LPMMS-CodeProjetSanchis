@@ -1,6 +1,8 @@
+from PIL import Image, ImageDraw, ImageFont
 import exifread
 import os
 import sys
+import glob
 
 # Classe image contient les coordonnés GPS ainsi que la miniature de l'image si renseigné
 class ImageCoord(object):
@@ -96,6 +98,23 @@ class ImageCoord(object):
                 (str(self.GPSLatitude) != "") &
                 (self.GPSLongitudeRef != "") &
                 (str(self.GPSLongitude) != ""))
+
+    def _set_JPEGThumbnail(self, lienImage, text = "", position = (2,2), fontSize = 40, font="calibri.ttf") :
+        size = 128, 128
+
+        # Créé une miiature de l'image
+        im = Image.open(lienImage)
+        im.thumbnail(size)
+
+        #Poilice du texte
+        font = ImageFont.truetype(font, fontSize)
+
+        # Ecriture sur l'image
+        draw = ImageDraw.Draw(im)
+        draw.text(position, text, font=font)
+
+        # Sauve
+        im.save(lienImage + ".png", "PNG")
 
     # Comparateur permet a la méthode sort de fonctionné correctement
     def __str__(self) :
