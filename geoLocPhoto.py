@@ -9,3 +9,5 @@ if (len(sys.argv) != 2):
 
 image = ImageCoord(sys.argv[1])
 print(image.__repr__())
+print(image._get_GPSLongitudeDMS())
+print(image._get_GPSLatitudeDMS())

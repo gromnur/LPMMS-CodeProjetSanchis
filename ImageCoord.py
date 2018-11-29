@@ -25,10 +25,8 @@ class ImageCoord(object):
         self.JPEGThumbnail = None
         self.GPSLatitudeRef = ""
         self.GPSLatitude = ""
-        self.GPSLatitudeDMS = 0.0
         self.GPSLongitudeRef = ""
         self.GPSLongitude = ""
-        self.GPSLongitudeDMS = 0.0
 
         with open(cheminImage,'rb') as image :
 
