@@ -4,7 +4,7 @@ import folium
 import webbrowser
 
 # Chemin du dossier ou l'on recupere les images
-cheminDossier = 'D:\\LPMMS\\ProjetSanchisIMG\\LPMMS-CodeProjetSanchis\\Image'
+cheminDossier = 'Z:\\LPMMS\\ProjetSanchis\\LPMMS-CodeProjetSanchis\\Image'
 dirImage = os.listdir(cheminDossier)
 
 #création du fichier tampon
@@ -37,7 +37,7 @@ print("Génération de la carte!")
 centre = (listImage[0]._get_GPSLatitudeDMS(), listImage[0]._get_GPSLongitudeDMS())
 
 # Création de la carte
-m = folium.Map(location=centre,zoom_start=11)
+m = folium.Map(location=centre,zoom_start=8)
 
 #Ajout marqueur carte
 for index in range(0,len(listImage)) :
