@@ -9,7 +9,6 @@ cheminDossier = 'D:\\LPMMS\\ProjetSanchisIMG\\LPMMS-CodeProjetSanchis\\Image'
 dirImage = os.listdir(cheminDossier)
 
 #création du fichier tampon
-os.mkdir('tempMiniature')
 listImage = []
 
 # Parcour du dossier d'images
@@ -56,9 +55,3 @@ m.save("carte.html")
 
 #Ouverture de la carte
 webbrowser.open("carte.html")
-
-# suppression du fichier tampon
-for root, dirs, files in os.walk("tempMiniature"):
-   for name in files:
-      os.remove("tempMiniature\\"+name)
-os.rmdir('tempMiniature')
