@@ -1,10 +1,16 @@
 from ImageCoord import ImageCoord
 import os
 import folium
+import sys
 import webbrowser
 
 # Chemin du dossier ou l'on recupere les images
+<<<<<<< HEAD
 cheminDossier = 'D:\\LPMMS\\ProjetSanchisIMG\\LPMMS-CodeProjetSanchis\Image'
+=======
+# cheminDossier = 'D:\\projet python\\LPMMS-CodeProjetSanchis\\Image'
+cheminDossier = os.path.abspath(sys.argv[1])
+>>>>>>> 0eefc86d41049650bb7e4d65672ccc1f8fbe99d2
 dirImage = os.listdir(cheminDossier)
 
 #création du fichier tampon
