@@ -6,11 +6,7 @@ import webbrowser
 from folium.features import DivIcon
 
 # Chemin du dossier ou l'on recupere les images
-if len(sys.argv) != 2:
-	print("syntaxe : listPhoto.py dossier")
-	sys.exit(1)
-
-cheminDossier = os.path.abspath(sys.argv[1])
+cheminDossier = input("saisir un nom de dossier")
 dirImage = os.listdir(cheminDossier)
 
 listImage = []
