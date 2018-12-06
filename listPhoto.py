@@ -1,11 +1,13 @@
 from ImageCoord import ImageCoord
 import os
+import sys
 import folium
 import webbrowser
 from folium.features import DivIcon
 
 # Chemin du dossier ou l'on recupere les images
-cheminDossier = 'D:\\projet python\\LPMMS-CodeProjetSanchis\\Image'
+# cheminDossier = 'D:\\projet python\\LPMMS-CodeProjetSanchis\\Image'
+cheminDossier = os.path.abspath(sys.argv[1])
 dirImage = os.listdir(cheminDossier)
 
 listImage = []
