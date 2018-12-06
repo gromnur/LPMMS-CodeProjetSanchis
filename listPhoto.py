@@ -5,7 +5,7 @@ import webbrowser
 from folium.features import DivIcon
 
 # Chemin du dossier ou l'on recupere les images
-cheminDossier = 'D:\\projet python\\LPMMS-CodeProjetSanchis\\Image'
+cheminDossier = 'D:\\LPMMS\\ProjetSanchisIMG\\LPMMS-CodeProjetSanchis\\Image'
 dirImage = os.listdir(cheminDossier)
 
 listImage = []
