@@ -1,14 +1,15 @@
 from ImageCoord import ImageCoord
 import os
-import folium
 import webbrowser
 
 # Chemin du dossier ou l'on recupere les images
-cheminDossier = 'Z:\\LPMMS\\ProjetSanchis\\LPMMS-CodeProjetSanchis\\Image'
+cheminDossier = 'D:\\LPMMS\\ProjetSanchisIMG\\LPMMS-CodeProjetSanchis\\Image'
 dirImage = os.listdir(cheminDossier)
 
 #création du fichier tampon
 os.mkdir('tempMiniature')
+
+#création du fichier tampon
 listImage = []
 
 # Parcour du dossier d'images
@@ -36,25 +37,30 @@ print("Génération de la carte!")
 
 centre = (listImage[0]._get_GPSLatitudeDMS(), listImage[0]._get_GPSLongitudeDMS())
 
-# Création de la carte
-m = folium.Map(location=centre,zoom_start=8)
-
-#Ajout marqueur carte
-for index in range(0,len(listImage)) :
-    #Création des icone TODO
-    icon = folium.features.CustomIcon("tempMiniature\\"+str(index)+".jpg", icon_size=(70,70))
-    coord = (listImage[index]._get_GPSLatitudeDMS(), listImage[index]._get_GPSLongitudeDMS())
-    # Ajout d'un marqeur TODO
-    folium.Marker(location=coord, popup=listImage[index]._get_Nom(), icon=icon).add_to(m)
-
-# Sauvergarde de la carte
-m.save("carte.html")
-
-#Ouverture de la carte
-webbrowser.open("carte.html")
+input("fin")
 
 # suppression du fichier tampon
 for root, dirs, files in os.walk("tempMiniature"):
    for name in files:
       os.remove("tempMiniature\\"+name)
 os.rmdir('tempMiniature')
+
+## Création de la carte
+#m = folium.Map(location=centre,zoom_start=8)
+#
+##Ajout marqueur carte
+#for index in range(0,len(listImage)) :
+#    #Création des icone TODO
+#    icon = folium.features.CustomIcon("tempMiniature\\"+str(index)+".jpg", icon_size=(70,70))
+#    coord = (listImage[index]._get_GPSLatitudeDMS(), listImage[index]._get_GPSLongitudeDMS())
+#    # Ajout d'un marqeur TODO
+#    folium.Marker(location=coord, popup=listImage[index]._get_Nom(), icon=DivIcon(
+#        icon_size=(150,36),
+#        icon_anchor=(0,0),
+#        html='<div style="font-size: 15pt">'+listImage[index]._get_Nom()+'</div>',)).add_to(m)
+#
+## Sauvergarde de la carte
+#m.save("carte.html")
+#
+##Ouverture de la carte
+#webbrowser.open("carte.html")
