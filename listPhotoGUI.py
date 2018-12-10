@@ -7,11 +7,10 @@ from folium.features import DivIcon
 
 # Chemin du dossier ou l'on recupere les images
 
-if len(sys.argv) != 2:
-	print("syntaxe : listPhoto.py dossier")
-	sys.exit(1)
-
-cheminDossier = os.path.abspath(sys.argv[1])
+racine = tkinter.Tk()
+racine.title("listPhoto")
+racine.directory = filedialog.askdirectory()
+cheminDossier = racine.directory
 dirImage = os.listdir(cheminDossier)
 
 listImage = []
