@@ -3,6 +3,8 @@ import os
 import sys
 import folium
 import webbrowser
+import tkinter
+from tkinter import filedialog
 from folium.features import DivIcon
 
 # Chemin du dossier ou l'on recupere les images
